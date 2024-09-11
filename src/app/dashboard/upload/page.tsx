@@ -40,7 +40,7 @@ const UploadButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-export default function UploadPage(): React.FunctionComponent {
+export default function UploadPage(): React.JSX.Element {
   const [file, setFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -92,7 +92,7 @@ export default function UploadPage(): React.FunctionComponent {
         </Typography>
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12}>
-            <SelectButton variant="contained" component="label" fullWidth>
+            <SelectButton variant="contained" fullWidth>
               Select File
               <input type="file" hidden onChange={handleFileChange} />
             </SelectButton>

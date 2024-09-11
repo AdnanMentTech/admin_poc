@@ -156,7 +156,7 @@ import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridPaginationModel } from '@mui/x-data-grid';
 import { Download as DownloadIcon } from '@phosphor-icons/react/dist/ssr/Download';
 import { Plus as PlusIcon } from '@phosphor-icons/react/dist/ssr/Plus';
 import { Upload as UploadIcon } from '@phosphor-icons/react/dist/ssr/Upload';
@@ -198,16 +198,12 @@ export default function Page(): React.JSX.Element {
   const fetchCustomers = async (page: number, pageSize: number) => {
     try {
       const response = await fetch(`http://localhost:3000/auth/users?page=${page + 1}&pageSize=${pageSize}`);
-      const data: FetchCustomersResponse = await response.json();
+      const data: any = await response.json();
       setCustomers(data.customers);
       setTotal(data.total);
     } catch (error) {
       console.error('Error fetching customers:', error);
     }
-  };
-
-  const handlePageChange = (newPage: number) => {
-    setPage(newPage);
   };
 
   const columns = [

@@ -7,7 +7,7 @@ interface FileWithPreview extends File {
   preview: string;
 }
 
-export default function FileUploadComponent(): React.FunctionComponent {
+export default function FileUploadComponent(): React.JSX.Element {
   const [selectedFiles, setSelectedFiles] = useState<FileWithPreview[]>([]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
